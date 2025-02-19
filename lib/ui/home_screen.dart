@@ -41,17 +41,19 @@ class HomeScreen extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AbsentScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AbsentScreen(),
+                        ),
+                      );
                     },
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
                           image: AssetImage('assets/images/ic_absen.png'),
-                          height: 100,
-                          width: 100,
+                          height: 80,
+                          width: 80,
                         ),
                         Text(
                           "Attendance Record",
@@ -70,17 +72,19 @@ class HomeScreen extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AttendScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AttendScreen(),
+                        ),
+                      );
                     },
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
                           image: AssetImage('assets/images/ic_leave.png'),
-                          height: 100,
-                          width: 100,
+                          height: 80,
+                          width: 80,
                         ),
                         Text(
                           "Permission",
@@ -99,17 +103,19 @@ class HomeScreen extends StatelessWidget {
                     splashColor: Colors.transparent,
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AttendanceHistoryScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AttendanceHistoryScreen(),
+                        ),
+                      );
                     },
                     child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
                           image: AssetImage('assets/images/ic_history.png'),
-                          height: 100,
-                          width: 100,
+                          height: 80,
+                          width: 80,
                         ),
                         Text(
                           "Attendance History",
