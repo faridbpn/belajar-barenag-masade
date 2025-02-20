@@ -1,6 +1,6 @@
 import 'package:first_project_mas_ade/ui/absent/absent_screen.dart';
 import 'package:first_project_mas_ade/ui/attend/attend_screen.dart';
-import 'package:first_project_mas_ade/ui/attendance_history/attendance_history_screen.dart';
+import 'package:first_project_mas_ade/ui/halo/halo_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,140 +14,101 @@ class HomeScreen extends StatelessWidget {
           // Header
           SizedBox(
             height: 50,
-            child: Scaffold(
-              appBar: AppBar(
-                backgroundColor: Colors.blueAccent,
-                centerTitle: true,
-                title: const Text(
-                  "Attendance - Flutter App Admin",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+            child: AppBar(
+              backgroundColor: Colors.blueAccent,
+              centerTitle: true,
+              title: const Text(
+                "Attendance - Flutter App Admin",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ),
           ),
+          const SizedBox(height: 20),
 
           // Content
           Expanded(
-            child: Column(
+            child: ListView(
+              shrinkWrap: true,
               children: [
-                Expanded(
-                  // efect when click
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AbsentScreen(),
-                        ),
-                      );
-                    },
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('assets/images/ic_absen.png'),
-                          height: 80,
-                          width: 80,
-                        ),
-                        Text(
-                          "Attendance Record",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                menuItem(
+                  context,
+                  'assets/images/ic_absen.png',
+                  "Attendance Record",
+                  const AbsentScreen(),
                 ),
-                Expanded(
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AttendScreen(),
-                        ),
-                      );
-                    },
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('assets/images/ic_leave.png'),
-                          height: 80,
-                          width: 80,
-                        ),
-                        Text(
-                          "Permission",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                const SizedBox(height: 20),
+                menuItem(
+                  context,
+                  'assets/images/ic_history.png',
+                  "Absent Record",
+                  const AttendScreen(),
                 ),
-                Expanded(
-                  child: InkWell(
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AttendanceHistoryScreen(),
-                        ),
-                      );
-                    },
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage('assets/images/ic_history.png'),
-                          height: 80,
-                          width: 80,
-                        ),
-                        Text(
-                          "Attendance History",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                const SizedBox(height: 20),
+                menuItem(
+                  context,
+                  'assets/images/ic_leave.png',
+                  "Attendance History Record",
+                  const AbsentScreen(),
+                ),
+                const SizedBox(height: 20),
+                menuItem(
+                  context,
+                  'assets/images/cat.gif',
+                  "Put Some Quote",
+                  const QuoteSubmissionScreen(),
                 ),
               ],
             ),
           ),
 
           // Footer
+          const SizedBox(height: 20),
           SizedBox(
             height: 50,
-            child: Scaffold(
-              appBar: AppBar(
-                backgroundColor: Colors.blueAccent,
-                centerTitle: true,
-                title: const Text(
-                  "IDN Boarding School Solo",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+            child: AppBar(
+              backgroundColor: Colors.blueAccent,
+              centerTitle: true,
+              title: const Text(
+                "IDN Boarding School Solo",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget menuItem(BuildContext context, String imagePath, String title, Widget page) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => page),
+        );
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image(
+            image: AssetImage(imagePath),
+            height: 80,
+            width: 80,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
