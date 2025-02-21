@@ -1,6 +1,8 @@
 import 'package:first_project_mas_ade/ui/absent/absent_screen.dart';
 import 'package:first_project_mas_ade/ui/attend/attend_screen.dart';
+import 'package:first_project_mas_ade/ui/attendance_history/attendance_history_screen.dart';
 import 'package:first_project_mas_ade/ui/halo/halo_screen.dart';
+import 'package:first_project_mas_ade/ui/quote_history/quote_history.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -52,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                   context,
                   'assets/images/ic_leave.png',
                   "Attendance History Record",
-                  const AbsentScreen(),
+                  const AttendanceHistoryScreen(),
                 ),
                 const SizedBox(height: 20),
                 menuItem(
@@ -60,6 +62,12 @@ class HomeScreen extends StatelessWidget {
                   'assets/images/cat.gif',
                   "Put Some Quote",
                   const QuoteSubmissionScreen(),
+                ),
+                menuItem(
+                  context,
+                  'assets/images/nyan-cat.gif',
+                  "Quote History Record",
+                  const QuoteHistoryScreen(),
                 ),
               ],
             ),
